@@ -1,0 +1,233 @@
+/* styles.css */
+
+/* Root color variables */
+:root {
+    --primary: #1c1a31;
+    --primary-2: #7e46d8;
+    --primary-3: #9263d9;
+    --primary-4: #0093b8;
+    --primary-5: #00a892;
+    --primary-6: #ffffff;
+    --secondary-1: #c0e021;
+    --secondary-2: #ee263e;
+    --secondary-3: #624c80;
+    --secondary-4: #00a892;
+    --secondary-5: #a7a9b4;
+    --secondary-6: #545860;
+    --font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--primary-6);
+    color: var(--primary);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main App Container */
+.app {
+    max-width: 700px;
+    width: 95%;
+    padding: 20px;
+    background-color: var(--primary-6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Title Styling */
+.title {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: var(--primary-2);
+    font-weight: 600;
+}
+
+/* Statements Styling */
+.statements {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.statement p {
+    margin: 0;
+    color: var(--primary-3);
+    font-weight: 500;
+}
+
+/* Slider Styling */
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider {
+    width: 80%;
+    accent-color: var(--primary-4);
+}
+
+.slider-value {
+    font-weight: bold;
+    color: var(--primary-2);
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: var(--primary-2);
+    color: var(--primary-6);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+
+.submit-btn.disabled {
+    background-color: var(--secondary-5);
+    cursor: not-allowed;
+}
+
+.submit-btn:hover:not(.disabled) {
+    background-color: var(--primary-3);
+}
+
+/* Result Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(28, 26, 49, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--primary-6);
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: var(--primary);
+}
+
+.close-btn {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: var(--secondary-2);
+    color: var(--primary-6);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: var(--secondary-3);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .app {
+        padding: 16px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+}
+
+/* styles.css */
+
+.instructions {
+    font-size: 16px;
+    color: var(--primary-3);
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.bold-text {
+    font-weight: 700; /* Bold weight */
+}
+
+/* styles.css */
+
+/* Modal overlay styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(28, 26, 49, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal content styling */
+.modal-content {
+    background: var(--primary-6);
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: var(--primary);
+    position: relative;
+}
+
+/* Close icon styling */
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--secondary-6);
+}
+
+.close-icon:hover {
+    color: var(--secondary-5);
+}
+
+/* Download button styling */
+.download-btn {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: var(--primary-2);
+    color: var(--primary-6);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+
+.download-btn:hover {
+    background-color: var(--primary-3);
+}
