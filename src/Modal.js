@@ -40,13 +40,21 @@ const Modal = ({ category, onClose }) => {
     const downloadPDF = () => {
         const doc = new jsPDF();
         
-        // Title
+        // Header Bar
+        const primaryColor = "#1c1a31"; // Dark header background
+        const titleTextColor = "#ffffff"; // White text for header
+        
+        // Draw header bar
+        doc.setFillColor(primaryColor);
+        doc.rect(0, 0, doc.internal.pageSize.width, 20, "F"); // Filled rectangle across the top
+
+        // Add centered title text in the header bar
         doc.setFont("helvetica", "bold");
         doc.setFontSize(20);
-        doc.setTextColor("#1c1a31"); // Primary color
-        doc.text("Authenticity Self-Assessment Results", 105, 20, null, null, "center");
+        doc.setTextColor(titleTextColor);
+        doc.text("Authenticity Self-Assessment Results", doc.internal.pageSize.width / 2, 13, { align: "center" });
 
-        // Define container dimensions and spacing
+        // Define container dimensions and starting position below the header
         const startX = 15;
         const containerWidth = 180;
         const containerHeight = 30;
@@ -64,7 +72,7 @@ const Modal = ({ category, onClose }) => {
 
         // CATEGORY SECTION
         drawContainer(startX, startY, containerWidth, containerHeight);
-        doc.setTextColor("#7e46d8");
+        doc.setTextColor("#7e46d8"); // Primary 2 color for section titles
         doc.setFontSize(14);
         doc.text("Category:", startX + padding, startY + 10);
         doc.setFont("helvetica", "bold");
@@ -88,10 +96,12 @@ const Modal = ({ category, onClose }) => {
         // GUIDANCE SECTION
         const guidanceHeight = containerHeight + 20;
         drawContainer(startX, startY, containerWidth, guidanceHeight);
-        doc.setTextColor("#7e46d8");
+        doc.setTextColor("#7e46d8"); // Primary 2 color for section title
         doc.setFontSize(14);
+        doc.setFont("helvetica", "bold"); // Bold font for "Guidance"
         doc.text("Guidance:", startX + padding, startY + 10);
-        doc.setTextColor("#1c1a31");
+        doc.setTextColor("#1c1a31"); // Primary color for body text
+        doc.setFont("helvetica", "normal"); // Regular font for content
         doc.text(insights[category].guidance, startX + padding, startY + 20, { maxWidth: 160 });
         startY += guidanceHeight + 10;
 
@@ -100,8 +110,10 @@ const Modal = ({ category, onClose }) => {
         drawContainer(startX, startY, containerWidth, insightsHeight);
         doc.setTextColor("#7e46d8");
         doc.setFontSize(14);
+        doc.setFont("helvetica", "bold"); // Bold font for "Deeper Insights"
         doc.text("Deeper Insights:", startX + padding, startY + 10);
         doc.setTextColor("#1c1a31");
+        doc.setFont("helvetica", "normal");
         doc.text(insights[category].deeperInsights, startX + padding, startY + 20, { maxWidth: 160 });
 
         // Save the PDF
